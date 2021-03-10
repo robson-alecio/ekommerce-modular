@@ -1,0 +1,14 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+
+    compile project(":common-kafka")
+    implementation group: 'org.apache.kafka', name: 'kafka-clients', version: "$kafkaVersion"
+}

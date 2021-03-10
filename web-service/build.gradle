@@ -1,0 +1,33 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    compile project(":common-kafka")
+
+    implementation group: 'org.slf4j', name: 'slf4j-simple', version: "$sl4jVersion"
+
+    // https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-servlet
+    compile group: 'org.eclipse.jetty', name: 'jetty-servlet', version: '11.0.0'
+
+    testImplementation "io.kotest:kotest-runner-junit5:4.4.1"
+    testImplementation "io.kotest:kotest-assertions-core:4.4.1"
+    testImplementation "io.kotest:kotest-property:4.4.1"
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "11"
+}
+
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "11"
+}
+
+test {
+    useJUnitPlatform()
+}

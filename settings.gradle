@@ -1,0 +1,5 @@
+rootProject.name = 'ekommerce-modular'
+
+include 'common-kafka', 'email-send', 'fraud-detector', 'log', 'new-order', 'user'
+include 'web-service'
+

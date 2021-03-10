@@ -1,0 +1,22 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+
+    compile project(":common-kafka")
+    implementation group: 'org.apache.kafka', name: 'kafka-clients', version: "$kafkaVersion"
+    implementation group: 'org.xerial', name: 'sqlite-jdbc', version: "$sqliteVersion"
+}
+compileKotlin {
+    kotlinOptions.jvmTarget = "11"
+}
+
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "11"
+}
